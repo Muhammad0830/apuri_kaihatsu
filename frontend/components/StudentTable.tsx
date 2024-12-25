@@ -189,7 +189,7 @@ export function StudentTable({
           />
         </div>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border dark:bg-black">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

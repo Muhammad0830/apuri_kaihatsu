@@ -19,12 +19,13 @@ const LanguageSelect = () => {
     router.push(pathname, { locale: lang });
   };
 
+
   return (
     <Select defaultValue={locale} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[180px] dark:bg-[#222222] dark:border-gray-500">
         <SelectValue placeholder={t("language")} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="dark:bg-[#222222] dark:border-gray-500">
         <SelectItem value="en">English</SelectItem>
         <SelectItem value="ja">日本語</SelectItem>
         <SelectItem value="uz">O‘zbekcha</SelectItem>

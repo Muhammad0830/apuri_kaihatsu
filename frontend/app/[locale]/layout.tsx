@@ -35,22 +35,22 @@ export default async function RootLayout({
 }>) {
   const messages = await getMessages();
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={inter.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <SessionProvider>
-              <ReactQueryProvider>{children}</ReactQueryProvider>
-            </SessionProvider>
-          </ThemeProvider>
-          <Toaster />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+      <html lang={locale} suppressHydrationWarning>
+        <body className={inter.className}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <SessionProvider>
+                <ReactQueryProvider>{children}</ReactQueryProvider>
+              </SessionProvider>
+            </ThemeProvider>
+            <Toaster />
+          </NextIntlClientProvider>
+        </body>
+      </html>
   );
 }

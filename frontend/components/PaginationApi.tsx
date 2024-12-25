@@ -23,6 +23,7 @@ const PaginationApi = ({
         <PaginationItem>
           <PaginationPrevious
             onClick={() => setPage(Number(data?.prev_page))}
+            className="dark:bg-black cursor-pointer" 
           />
         </PaginationItem>
         {data &&
@@ -32,7 +33,7 @@ const PaginationApi = ({
                 <PaginationEllipsis />
               </PaginationItem>
             ) : (
-              <PaginationItem key={page}>
+              <PaginationItem key={page} >
                 <PaginationLink
                   onClick={() => setPage(+page)}
                   isActive={page === data?.current_page}
@@ -42,11 +43,12 @@ const PaginationApi = ({
               </PaginationItem>
             )
           )}
-        <PaginationItem>
+        <PaginationItem >
           <PaginationNext
             onClick={() => {
               setPage(Number(data?.next_page));
             }}
+            className="dark:bg-black cursor-pointer"
           />
         </PaginationItem>
       </PaginationContent>

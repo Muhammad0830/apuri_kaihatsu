@@ -80,7 +80,7 @@ export default function EditGroup({
       <div className="w-full flex justify-between">
         <h1 className="text-3xl w-2/4 font-bold">{t("EditGroup")}</h1>
         <Link href={`/groups`} passHref>
-          <Button variant={"secondary"}>{t("back")}</Button>
+          <Button variant={"defaultBlack"}>{t("back")}</Button>
         </Link>
       </div>
       <div className="w-full mt-8">

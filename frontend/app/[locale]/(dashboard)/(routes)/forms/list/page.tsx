@@ -118,7 +118,7 @@ export default function Forms() {
       <div className="w-full flex justify-between">
         <h1 className="text-3xl w-2/4 font-bold">{t("forms")}</h1>
         <Link href={`/forms`}>
-          <Button variant={"secondary"}>{t("back")}</Button>
+          <Button variant={"defaultBlack"}>{t("back")}</Button>
         </Link>
       </div>
       <div className="flex flex-wrap justify-between w-full gap-2">

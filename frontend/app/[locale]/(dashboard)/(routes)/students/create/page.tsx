@@ -90,7 +90,7 @@ export default function CreateStudent() {
 
         <div className="flex gap-2.5">
           <Link href="/fromcsv/student">
-            <Button variant={"secondary"}>
+            <Button variant={"defaultBlack"}>
               <div className="bg-gray-200 p-1 rounded-sm mr-2">
                 <svg
                   className="w-4 h-4 text-gray-600"
@@ -105,7 +105,7 @@ export default function CreateStudent() {
           </Link>
 
           <Link href={"/students"}>
-            <Button variant={"secondary"}>{t("back")}</Button>
+            <Button variant={"defaultBlack"}>{t("back")}</Button>
           </Link>
         </div>
       </div>

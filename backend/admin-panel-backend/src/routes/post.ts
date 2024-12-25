@@ -17,10 +17,10 @@ class StudentController implements IController {
         this.initRoutes()
     }
 
-
     initRoutes(): void {
         this.router.post('/post/create', verifyToken, this.createPost)
         this.router.get('/post/list', verifyToken, this.postList)
+        // this.router.get('/post/create/title', verifyToken, this.postCreateTitle)
 
         this.router.get('/post/:id', verifyToken, this.postView)
         this.router.put('/post/:id', verifyToken, this.postUpdate)
@@ -36,7 +36,13 @@ class StudentController implements IController {
         this.router.post('/post/:id/groups/:group_id', verifyToken, this.groupRetryPush)
         this.router.post('/post/:id/students/:student_id', verifyToken, this.studentRetryPush)
         this.router.post('/post/:id/parents/:parent_id', verifyToken, this.parentRetryPush)
+
     }
+
+    // postCreateTitle(req: Request, res: Response): void {
+    //     res.send('Hello World'); // Sends "Hello World" as the response
+    // }
+    
 
     groupRetryPush = async (req: ExtendedRequest, res: Response) => {
         try {

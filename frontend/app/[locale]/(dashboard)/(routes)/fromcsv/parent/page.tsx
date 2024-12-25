@@ -122,7 +122,7 @@ export default function CreateFromCsv() {
       <div className="flex justify-between">
         <h1 className="text-3xl font-bold">{t("createParentFromCsv")}</h1>
       </div>
-      <Card className="p-5 space-y-2">
+      <Card className="p-5 space-y-2 dark:bg-transparent dark:border-gray-600">
         <Form {...form}>
           <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
@@ -188,7 +188,7 @@ export default function CreateFromCsv() {
         </Link>
       </Card>
 
-      <Card x-chunk="dashboard-05-chunk-3">
+      <Card x-chunk="dashboard-05-chunk-3" className="dark:bg-transparent dark:border-gray-600">
         <CardHeader className="flex flex-row justify-between items-center ">
           <div>
             <CardTitle>{t("parentsschema")}</CardTitle>
@@ -204,8 +204,8 @@ export default function CreateFromCsv() {
             <span className="sr-only sm:not-sr-only">Export</span>
           </Button>
         </CardHeader>
-        <CardContent>
-          <Table>
+        <CardContent >
+          <Table className="dark:bg-black dark:border-gray-600 rounded-md">
             <TableHeader>
               <TableRow>
                 <TableHead>email</TableHead>

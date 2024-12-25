@@ -85,7 +85,7 @@ export default function CreateStudent({
       <div className="flex justify-between">
         <h1 className="text-3xl w-2/4 font-bold">{t("EditStudent")}</h1>
         <Link href={"/students"}>
-          <Button variant={"secondary"}>{t("back")}</Button>
+          <Button variant={"defaultBlack"}>{t("back")}</Button>
         </Link>
       </div>
       <Form {...form}>

@@ -85,7 +85,7 @@ export default function CreateParent() {
         <h1 className="text-3xl w-2/4 font-bold">{t("CreateParent")}</h1>
         <div className="flex gap-2">
           <Link href="/fromcsv/parent">
-            <Button variant={"secondary"}>
+            <Button variant={"defaultBlack"}>
               <div className="bg-gray-200 p-1 rounded-sm mr-2">
                 <svg
                   className="w-4 h-4 text-gray-600"
@@ -100,7 +100,7 @@ export default function CreateParent() {
           </Link>
 
           <Link href={`/parents`}>
-            <Button>{t("back")}</Button>
+            <Button variant={"defaultBlack"}>{t("back")}</Button>
           </Link>
         </div>
       </div>

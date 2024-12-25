@@ -42,12 +42,12 @@ const NavLink: React.FC<NavLinkProps> = ({ href, Icon, name, badge }) => {
   return (
     <Link
       href={href}
-      className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${
+      className={`flex items-center rounded-lg w-auto px-3 py-2 text-black text-opacity-70 dark:text-muted-foreground transition-all duration-50 ease dark:hover:text-white hover:text-black hover:text-opacity-100 relative ${
         pathname.startsWith(href) ? "bg-muted text-primary" : ""
       }`}
     >
       <Icon className="h-4 w-4" />
-      {name}
+      <div className="h-4 w-[300px] duration-300 transition-all absolute left-[60px] group-hover:left-[40px]">{name}</div>
       {!!notificationCount && (
         <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
           {notificationCount}

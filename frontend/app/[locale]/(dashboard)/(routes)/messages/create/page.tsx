@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
@@ -124,6 +124,16 @@ export default function SendMessagePage() {
   //   );
   // };
 
+  const [titleData, setTitleData] = useState<{ value: string; label: string }[]>([]);
+
+  useEffect(() => {
+    setTitleData(
+      localStorage.getItem("titleData")
+        ? JSON.parse(localStorage.getItem("titleData")!)
+        : []
+    );
+  }, []);
+
   return (
     <div className="w-full">
       <Form {...form}>
@@ -142,7 +152,7 @@ export default function SendMessagePage() {
             <h1 className="text-3xl font-bold">{t("sendMessage")}</h1>
             <div className="space-x-4">
               <Link href="/messages" passHref>
-                <Button type="button" variant={"secondary"}>
+                <Button type="button" variant={"defaultBlack"}>
                   {t("back")}
                 </Button>
               </Link>
@@ -155,9 +165,45 @@ export default function SendMessagePage() {
             render={({ field, formState }) => (
               <FormItem>
                 <FormLabel>{t("title")}</FormLabel>
-                <FormControl>
-                  <Input {...field} placeholder={t("typeTitle")} />
-                </FormControl>
+                <div className="flex flex-row gap-2 justify-between items-center">
+                  <FormControl className="w-4/5">
+                    <Input {...field} placeholder={t("typeTitle")} />
+                  </FormControl>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <SelectTrigger className="w-1/5">
+                      <SelectValue placeholder={t("chooseTitle")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        {titleData.length < 1 ? (
+                          <div className="pl-8 text-sm">
+                            There is no Title Sample
+                          </div>
+                        ) : (
+                          <div>
+                            <SelectLabel>{t("title")}</SelectLabel>
+                            {titleData.map((item) => (
+                              <SelectItem
+                                key={item.value}
+                                value={item.value}
+                              >
+                                <div>{item.label}</div>
+                              </SelectItem>
+                            ))}
+                          </div>
+                        )}
+                        <Link href={"/messages/create/title"} passHref>
+                          <Button variant={"default"} className="w-full mt-2">
+                            Make a title
+                          </Button>
+                        </Link>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
                 <FormMessage>
                   {formState.errors.title &&
                     "Title is required. Title should be more than 5 characters"}
@@ -219,7 +265,7 @@ export default function SendMessagePage() {
             )}
           />
 
-          {/*<FormField
+          {/* <FormField
             control={form.control}
             name="images"
             render={({ field, formState }) => (
@@ -282,10 +328,10 @@ export default function SendMessagePage() {
                 </div>
               </FormItem>
             )}
-          />*/}
+          /> */}
 
           <Tabs defaultValue="group">
-            <TabsList>
+            <TabsList className="dark:bg-white">
               <TabsTrigger value="group">{t("groups")}</TabsTrigger>
               <TabsTrigger value="student">{t("students")}</TabsTrigger>
             </TabsList>
@@ -348,7 +394,7 @@ export default function SendMessagePage() {
                   </div>
                   <div className="flex flex-col gap-1">
                     <b>{t("students")}</b>
-                    <div className="flex flex-wrap gap-2 items-start content-start ">
+                    <div className="flex flex-wrap gap-2 items-start content-start">
                       {selectedStudents.map((e) => (
                         <Badge key={e.id}>
                           {tName("name", { ...e, parents: "" })}
